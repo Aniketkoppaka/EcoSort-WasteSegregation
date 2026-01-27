@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Waste Segregation AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">🗑️</span>
+                <span class="logo-text">WasteAI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+                <li><a href="https://github.com/Aniketkoppaka/WasteSegregation" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Content -->
+    <main class="about-container">
+        <section class="about-hero">
+            <h1>About This Project</h1>
+            <p>An AI-powered solution for automated waste classification</p>
+        </section>
+
+        <section class="about-content">
+            <div class="about-card">
+                <h2>🎯 Project Overview</h2>
+                <p>
+                    The Intelligent Waste Segregation System uses deep learning and computer vision 
+                    to automatically classify waste items into appropriate categories. This helps 
+                    promote proper waste disposal and recycling practices.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2>🧠 AI Models</h2>
+                <div class="model-grid">
+                    <div class="model-item">
+                        <h3>YOLOv8 Nano</h3>
+                        <p>Object Detection</p>
+                        <span class="metric">mAP50: 99.5%</span>
+                    </div>
+                    <div class="model-item">
+                        <h3>MobileNetV2</h3>
+                        <p>Classification</p>
+                        <span class="metric">Accuracy: 92.8%</span>
+                    </div>
+                    <div class="model-item">
+                        <h3>Autoencoder</h3>
+                        <p>Anomaly Detection</p>
+                        <span class="metric">Threshold-based</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2>🗂️ Waste Categories</h2>
+                <div class="category-grid">
+                    <div class="category-item recyclable">
+                        <span class="category-icon">♻️</span>
+                        <h3>Recyclable</h3>
+                        <p>Plastic, glass, metal, paper, cardboard</p>
+                    </div>
+                    <div class="category-item organic">
+                        <span class="category-icon">🟢</span>
+                        <h3>Organic</h3>
+                        <p>Food scraps, yard waste, compostables</p>
+                    </div>
+                    <div class="category-item ewaste">
+                        <span class="category-icon">🔴</span>
+                        <h3>E-Waste</h3>
+                        <p>Electronics, batteries, cables</p>
+                    </div>
+                    <div class="category-item general">
+                        <span class="category-icon">⚫</span>
+                        <h3>General</h3>
+                        <p>Non-recyclable, mixed materials</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2>🛠️ Tech Stack</h2>
+                <div class="tech-grid">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">TensorFlow</span>
+                    <span class="tech-badge">Keras</span>
+                    <span class="tech-badge">YOLOv8</span>
+                    <span class="tech-badge">Flask</span>
+                    <span class="tech-badge">OpenCV</span>
+                    <span class="tech-badge">NumPy</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2>📊 Training Data</h2>
+                <ul>
+                    <li><strong>TrashNet Dataset:</strong> 2,527 images across 6 categories</li>
+                    <li><strong>TACO Dataset:</strong> 1,500+ real-world waste images</li>
+                    <li><strong>Synthetic Data:</strong> Generated organic and e-waste samples</li>
+                </ul>
+            </div>
+
+            <div class="about-card">
+                <h2>👨‍💻 Developer</h2>
+                <p>
+                    Created by <strong>Aniket Koppaka</strong>
+                </p>
+                <a href="https://github.com/Aniketkoppaka/WasteSegregation" class="btn btn-primary" target="_blank">
+                    View on GitHub
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Built with ❤️ using YOLOv8, MobileNetV2, and TensorFlow</p>
+            <p>© 2026 Aniket Koppaka</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Segregation AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">🗑️</span>
+                <span class="logo-text">WasteAI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="https://github.com/Aniketkoppaka/WasteSegregation" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Intelligent Waste Segregation</h1>
+            <p>Upload an image of waste and let AI classify it for proper disposal</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-card">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📷</div>
+                    <h3>Drop your image here</h3>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <button class="btn btn-primary" id="browseBtn">Browse Files</button>
+                </div>
+                <div class="preview-area" id="previewArea" style="display: none;">
+                    <img id="previewImage" src="" alt="Preview">
+                    <button class="btn btn-secondary" id="changeBtn">Change Image</button>
+                </div>
+                <button class="btn btn-success btn-analyze" id="analyzeBtn" disabled>
+                    <span class="btn-text">Analyze Waste</span>
+                    <span class="btn-loader" style="display: none;"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <h2>Analysis Results</h2>
+            
+            <div class="results-grid">
+                <!-- Classification Result -->
+                <div class="result-card classification-card" id="classificationCard">
+                    <div class="card-header">
+                        <span class="card-icon">🏷️</span>
+                        <h3>Classification</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="waste-type" id="wasteType">-</div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                        <div class="confidence-text" id="confidenceText">Confidence: -</div>
+                    </div>
+                </div>
+
+                <!-- Disposal Recommendation -->
+                <div class="result-card disposal-card" id="disposalCard">
+                    <div class="card-header">
+                        <span class="card-icon">🗑️</span>
+                        <h3>Disposal Recommendation</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="bin-info" id="binInfo">
+                            <span class="bin-icon" id="binIcon">-</span>
+                            <span class="bin-name" id="binName">-</span>
+                        </div>
+                        <div class="instructions" id="instructions">-</div>
+                        <div class="examples">
+                            <strong>Examples:</strong>
+                            <span id="examples">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detection Result -->
+                <div class="result-card detection-card" id="detectionCard">
+                    <div class="card-header">
+                        <span class="card-icon">🔍</span>
+                        <h3>Object Detection</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="detection-status" id="detectionStatus">-</div>
+                        <div class="detection-confidence" id="detectionConfidence">-</div>
+                    </div>
+                </div>
+
+                <!-- Anomaly Detection -->
+                <div class="result-card anomaly-card" id="anomalyCard">
+                    <div class="card-header">
+                        <span class="card-icon">⚠️</span>
+                        <h3>Anomaly Check</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="anomaly-status" id="anomalyStatus">-</div>
+                        <div class="anomaly-score" id="anomalyScore">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Probability Chart -->
+            <div class="probability-section">
+                <h3>Class Probabilities</h3>
+                <div class="probability-bars" id="probabilityBars">
+                    <!-- Filled by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Built with ❤️ using YOLOv8, MobileNetV2, and TensorFlow</p>
+            <p>© 2026 Aniket Koppaka</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

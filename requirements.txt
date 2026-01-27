@@ -26,6 +26,10 @@ scikit-learn>=1.2.0
 tqdm>=4.64.0
 pyyaml>=6.0
 
+# Web Application
+flask>=2.3.0
+werkzeug>=2.3.0
+
 # Dataset handling
 requests>=2.28.0
 gdown>=4.6.0
