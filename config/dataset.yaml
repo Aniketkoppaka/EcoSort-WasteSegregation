@@ -1,0 +1,7 @@
+names:
+- waste
+nc: 1
+path: c:\Users\anike\Downloads\WasteSegregation\datasets\processed
+test: test/images
+train: train/images
+val: val/images

@@ -1,0 +1,92 @@
+# Waste Segregation System Configuration
+
+# Project Paths
+paths:
+  root: "c:/Users/anike/Downloads/WasteSegregation"
+  datasets:
+    raw: "datasets/raw"
+    processed: "datasets/processed"
+    trashnet: "datasets/raw/trashnet"
+    taco: "datasets/raw/taco"
+  models:
+    yolo: "models/yolo"
+    mobilenet: "models/mobilenet"
+    autoencoder: "models/autoencoder"
+  outputs:
+    detections: "outputs/detections"
+    classifications: "outputs/classifications"
+    metrics: "outputs/metrics"
+
+# Dataset Configuration
+dataset:
+  image_size: 224  # For MobileNet classifier
+  yolo_image_size: 320  # For YOLO detector (reduced for faster training)
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  random_seed: 42
+
+# Waste Categories
+categories:
+  classification:
+    - "recyclable"
+    - "organic"
+    - "e-waste"
+    - "general"
+  detection:
+    - "waste"  # Single class for YOLO detection
+
+# Category Mapping (TrashNet to our categories)
+category_mapping:
+  cardboard: "recyclable"
+  glass: "recyclable"
+  metal: "recyclable"
+  paper: "recyclable"
+  plastic: "recyclable"
+  trash: "general"
+
+# YOLO Model Configuration
+yolo:
+  model: "yolov8n.pt"  # Nano model for faster training
+  epochs: 15  # Reduced from 100 for faster training
+  batch_size: 8  # Reduced for CPU training
+  confidence_threshold: 0.5
+  iou_threshold: 0.45
+
+# MobileNet Classifier Configuration
+mobilenet:
+  base_model: "MobileNetV2"
+  input_shape: [224, 224, 3]
+  include_top: false
+  weights: "imagenet"
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  dropout_rate: 0.3
+  freeze_base_layers: true
+
+# Autoencoder Configuration
+autoencoder:
+  input_shape: [128, 128, 3]
+  encoding_dim: 64
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+  anomaly_threshold: 0.02  # Reconstruction error threshold
+
+# Data Augmentation
+augmentation:
+  rotation_range: 20
+  width_shift_range: 0.2
+  height_shift_range: 0.2
+  horizontal_flip: true
+  vertical_flip: false
+  zoom_range: 0.15
+  brightness_range: [0.8, 1.2]
+  fill_mode: "nearest"
+
+# Inference Settings
+inference:
+  confidence_threshold: 0.5
+  nms_threshold: 0.4
+  max_detections: 50

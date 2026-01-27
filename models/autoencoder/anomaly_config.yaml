@@ -1,0 +1,7 @@
+encoding_dim: 64
+image_size:
+- 128
+- 128
+mean_error: 0.014616325497627258
+std_error: 0.010512545704841614
+threshold: 0.035641416907310486

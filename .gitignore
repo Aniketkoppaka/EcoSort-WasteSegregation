@@ -1,0 +1,69 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Datasets (too large for git)
+datasets/raw/
+datasets/processed/
+
+# Training artifacts
+notebooks/runs/
+notebooks/yolov8n.pt
+wandb/
+mlruns/
+
+# Model backups (keep only final models)
+models/yolo/waste_detector/
+models/yolo/waste_detector_last.pt
+models/mobilenet/mobilenet_best.keras
+models/mobilenet/mobilenet_improved.keras
+models/autoencoder/autoencoder_best.keras
+
+# Outputs (generated files)
+outputs/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Environment files
+.env
+.env.local
