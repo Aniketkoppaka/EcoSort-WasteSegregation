@@ -1,10 +1,11 @@
 # 🗑️ Intelligent Waste Segregation System
 
-An AI-powered waste detection and classification system using deep learning and computer vision to automate waste segregation from images.
+An AI-powered waste detection and classification system using deep learning and computer vision to automate waste segregation from images. Features a modern React frontend with real-time classification and beautiful visualizations.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.20-orange.svg)
 ![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-green.svg)
+![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## 📋 Overview
@@ -23,10 +24,50 @@ This system combines three powerful deep learning models into a unified pipeline
 - 🔴 **E-waste** - Electronics, batteries
 - ⚫ **General** - Non-recyclable waste
 
+## 🌐 Web Application
+
+The project includes a full-stack web application:
+
+- **Frontend**: React 18 + Vite + Tailwind CSS + Framer Motion
+- **Backend**: Flask REST API
+
+### Features
+- 🎨 Modern glass morphism UI with animated backgrounds
+- 📤 Drag-and-drop image upload with preview
+- 📊 Real-time classification with confidence scores
+- 📱 Fully responsive design
+- ⚡ Fast inference with optimized models
+
+### Running the Web App
+
+1. **Start the Flask backend**
+   ```bash
+   python app.py
+   ```
+
+2. **Start the React frontend**
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+3. Open http://localhost:3000 in your browser
+
 ## 🏗️ Project Structure
 
 ```
 WasteSegregation/
+├── app.py                       # Flask backend API
+├── frontend/                    # React frontend
+│   ├── src/
+│   │   ├── components/          # React components
+│   │   ├── App.jsx              # Main app
+│   │   └── index.css            # Tailwind styles
+│   ├── package.json
+│   └── vite.config.js
+├── templates/                   # Flask HTML templates
+├── static/                      # Static assets
 ├── config/
 │   ├── config.yaml              # Project configuration
 │   └── dataset.yaml             # YOLO dataset config
@@ -150,11 +191,18 @@ Run the notebooks in order to train the models:
 
 ## 🛠️ Tech Stack
 
+### Backend & ML
 - **Deep Learning**: TensorFlow 2.20, Keras
 - **Object Detection**: Ultralytics YOLOv8
 - **Image Processing**: OpenCV, Pillow
+- **API**: Flask
 - **Data Science**: NumPy, Pandas, Scikit-learn
-- **Visualization**: Matplotlib, Seaborn
+
+### Frontend
+- **Framework**: React 18, Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
 
 ## 📝 License
 
