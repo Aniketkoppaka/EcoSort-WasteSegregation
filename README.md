@@ -8,7 +8,28 @@ An AI-powered waste detection and classification system using deep learning and 
 ![React](https://img.shields.io/badge/React-18.2-61DAFB.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## 📋 Overview
+## � Screenshots
+
+<div align="center">
+
+### 🌙 Dark Mode
+<img src="assets/screenshots/homepage-dark.png" alt="Homepage Dark Mode" width="800"/>
+
+### ☀️ Light Mode
+<img src="assets/screenshots/homepage-light.png" alt="Homepage Light Mode" width="800"/>
+
+### 📤 Upload Zone
+<img src="assets/screenshots/upload-zone.png" alt="Upload Zone" width="800"/>
+
+### 📊 Classification Results
+<img src="assets/screenshots/results.png" alt="Results Page" width="800"/>
+
+### ℹ️ About Page
+<img src="assets/screenshots/about-page.png" alt="About Page" width="800"/>
+
+</div>
+
+## �📋 Overview
 
 This system combines three powerful deep learning models into a unified pipeline:
 
