@@ -123,16 +123,30 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+# Flag to determine which preprocessing to use
+# Set to True after training EfficientNet and deploying it
+USE_EFFICIENTNET = True  # Change to True after EfficientNet training
+
+
 def preprocess_for_classifier(image, target_size=(224, 224)):
-    """Preprocess image for MobileNet classifier."""
+    """Preprocess image for classifier (MobileNet or EfficientNet)."""
     if isinstance(image, np.ndarray):
         img = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
     else:
         img = image
     
     img = img.resize(target_size, Image.Resampling.LANCZOS)
-    img_array = np.array(img) / 255.0
-    return np.expand_dims(img_array, axis=0)
+    img_array = np.array(img, dtype=np.float32)
+    
+    if USE_EFFICIENTNET:
+        # EfficientNet preprocessing
+        from tensorflow.keras.applications.efficientnet import preprocess_input
+        img_array = np.expand_dims(img_array, axis=0)
+        return preprocess_input(img_array)
+    else:
+        # MobileNetV2 preprocessing (0-1 normalization)
+        img_array = img_array / 255.0
+        return np.expand_dims(img_array, axis=0)
 
 
 def preprocess_for_autoencoder(image, target_size=(128, 128)):

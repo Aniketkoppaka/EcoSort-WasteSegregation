@@ -27,10 +27,10 @@ export default function AboutPage() {
       color: 'from-purple-500 to-pink-500',
     },
     {
-      name: 'MobileNetV2',
+      name: 'EfficientNetB0',
       purpose: 'Classification',
-      accuracy: 'Accuracy: 92.8%',
-      description: 'Classifies detected waste into 4 categories using transfer learning',
+      accuracy: 'Accuracy: 94.02%',
+      description: 'State-of-the-art classifier with transfer learning for 4-category waste classification',
       icon: Layers,
       color: 'from-blue-500 to-cyan-500',
     },
@@ -68,7 +68,7 @@ export default function AboutPage() {
 
   const stats = [
     { value: '99.5%', label: 'Detection mAP50' },
-    { value: '92.8%', label: 'Classification Accuracy' },
+    { value: '94.02%', label: 'Classification Accuracy' },
     { value: '4', label: 'Waste Categories' },
     { value: '3', label: 'AI Models' },
   ]
@@ -99,10 +99,10 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="heading-1 text-white mb-6"
+            className="heading-1 text-gray-900 dark:text-white mb-6"
           >
             About{' '}
-            <span className="text-gradient">WasteAI</span>
+            <span className="text-gradient">EcoSort</span>
           </motion.h1>
 
           <motion.p
@@ -133,7 +133,7 @@ export default function AboutPage() {
                 <div className="text-3xl font-display font-bold text-gradient mb-1">
                   {stat.value}
                 </div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
+                <div className="text-gray-600 dark:text-gray-400 text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -148,7 +148,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="heading-2 text-white mb-4">AI Models</h2>
+          <h2 className="heading-2 text-gray-900 dark:text-white mb-4">AI Models</h2>
           <p className="body-large max-w-2xl mx-auto">
             Our system uses three state-of-the-art deep learning models
             working together for accurate waste classification.
@@ -169,14 +169,14 @@ export default function AboutPage() {
               <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${model.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 <model.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-display font-bold text-white mb-2">
+              <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-2">
                 {model.name}
               </h3>
-              <p className="text-primary-400 font-medium mb-3">{model.purpose}</p>
+              <p className="text-primary-500 font-medium mb-3">{model.purpose}</p>
               <div className="inline-flex px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 mb-4">
-                <span className="text-green-400 text-sm font-medium">{model.accuracy}</span>
+                <span className="text-green-500 dark:text-green-400 text-sm font-medium">{model.accuracy}</span>
               </div>
-              <p className="text-gray-400 leading-relaxed">{model.description}</p>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{model.description}</p>
             </motion.div>
           ))}
         </div>
@@ -190,7 +190,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="heading-2 text-white mb-4">Waste Categories</h2>
+          <h2 className="heading-2 text-gray-900 dark:text-white mb-4">Waste Categories</h2>
           <p className="body-large max-w-2xl mx-auto">
             Our system classifies waste into four main categories,
             each with specific disposal guidelines.
@@ -215,7 +215,7 @@ export default function AboutPage() {
               </h3>
               <ul className="space-y-2">
                 {category.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-gray-400 text-sm">
+                  <li key={item} className="flex items-center gap-2 text-gray-600 dark:text-gray-400 text-sm">
                     <div className={`w-1.5 h-1.5 rounded-full ${category.bg}`} />
                     {item}
                   </li>
@@ -234,7 +234,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="heading-2 text-white mb-4">Tech Stack</h2>
+          <h2 className="heading-2 text-gray-900 dark:text-white mb-4">Tech Stack</h2>
           <p className="body-large max-w-2xl mx-auto">
             Built with modern technologies and best practices.
           </p>
@@ -254,9 +254,9 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.03 }}
               whileHover={{ scale: 1.05, y: -2 }}
-              className="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-white/10 hover:border-primary-500/30 transition-all"
+              className="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-gray-200 dark:border-white/10 hover:border-primary-500/30 transition-all"
             >
-              <span className="text-white font-medium">{tech.name}</span>
+              <span className="text-gray-800 dark:text-white font-medium">{tech.name}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -274,20 +274,20 @@ export default function AboutPage() {
             <div className="p-3 rounded-xl bg-primary-500/20">
               <Database className="w-6 h-6 text-primary-400" />
             </div>
-            <h2 className="heading-3 text-white">Training Data</h2>
+            <h2 className="heading-3 text-gray-900 dark:text-white">Training Data</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">TrashNet Dataset</h3>
-              <p className="text-gray-400 mb-2">2,527 images across 6 categories</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">TrashNet Dataset</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-2">2,527 images across 6 categories</p>
               <p className="text-gray-500 text-sm">
                 Contains images of cardboard, glass, metal, paper, plastic, and trash
                 for waste classification training.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-3">TACO Dataset</h3>
-              <p className="text-gray-400 mb-2">1,500+ real-world waste images</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">TACO Dataset</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-2">1,500+ real-world waste images</p>
               <p className="text-gray-500 text-sm">
                 Trash Annotations in Context - real-world images with bounding box
                 annotations for object detection training.
@@ -306,7 +306,7 @@ export default function AboutPage() {
           className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary-600/20 to-purple-600/20 p-12 md:p-16 text-center"
         >
           <div className="relative z-10">
-            <h2 className="heading-2 text-white mb-4">
+            <h2 className="heading-2 text-gray-900 dark:text-white mb-4">
               Created by Aniket Koppaka
             </h2>
             <p className="body-large max-w-xl mx-auto mb-8">

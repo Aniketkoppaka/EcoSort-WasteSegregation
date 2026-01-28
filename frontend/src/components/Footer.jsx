@@ -1,6 +1,13 @@
 import { motion } from 'framer-motion'
-import { Github, Twitter, Linkedin, Heart, Trash2 } from 'lucide-react'
+import { Github, Linkedin, Heart, Trash2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+
+// Custom X (Twitter) icon component
+const XIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+)
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -13,8 +20,8 @@ export default function Footer() {
     ],
     Resources: [
       { name: 'GitHub', href: 'https://github.com/Aniketkoppaka/WasteSegregation', external: true },
-      { name: 'Documentation', href: '#' },
-      { name: 'API Reference', href: '#' },
+      { name: 'Documentation', href: 'https://github.com/Aniketkoppaka/WasteSegregation', external: true },
+      { name: 'API Reference', href: 'https://github.com/Aniketkoppaka/WasteSegregation', external: true },
     ],
     Categories: [
       { name: 'Recyclable', href: '#', color: 'text-recyclable' },
@@ -25,9 +32,9 @@ export default function Footer() {
   }
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/Aniketkoppaka/WasteSegregation', label: 'GitHub' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/Aniketkoppaka', label: 'GitHub' },
+    { icon: XIcon, href: 'https://x.com/aniketkoppaka', label: 'X' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/aniketveerkoppaka/', label: 'LinkedIn' },
   ]
 
   return (
@@ -44,13 +51,13 @@ export default function Footer() {
                 <Trash2 className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-xl font-display font-bold text-white">
-                  Waste<span className="text-primary-400">AI</span>
+                <span className="text-xl font-display font-bold text-gray-900 dark:text-white">
+                  Eco<span className="text-primary-500">Sort</span>
                 </span>
               </div>
             </Link>
-            <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
-              An AI-powered waste segregation system using YOLOv8, MobileNetV2, and deep learning
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 max-w-md">
+              An AI-powered waste segregation system using YOLOv8, EfficientNetB0, and deep learning
               to automate waste classification for a cleaner, sustainable future.
             </p>
             {/* Social links */}
@@ -63,7 +70,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all"
+                  className="p-3 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -75,7 +82,7 @@ export default function Footer() {
           {/* Links sections */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
                 {title}
               </h3>
               <ul className="space-y-3">
@@ -86,14 +93,14 @@ export default function Footer() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`text-gray-400 hover:text-white transition-colors ${link.color || ''}`}
+                        className={`text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors ${link.color || ''}`}
                       >
                         {link.name}
                       </a>
                     ) : (
                       <Link
                         to={link.href}
-                        className={`text-gray-400 hover:text-white transition-colors ${link.color || ''}`}
+                        className={`text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors ${link.color || ''}`}
                       >
                         {link.name}
                       </Link>
@@ -106,12 +113,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="mt-16 pt-8 border-t border-white/10">
+        <div className="mt-16 pt-8 border-t border-gray-200 dark:border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-gray-500 text-sm">
-              © {currentYear} WasteAI. All rights reserved.
+            <p className="text-gray-500 dark:text-gray-500 text-sm">
+              © {currentYear} EcoSort. All rights reserved.
             </p>
-            <p className="flex items-center gap-2 text-gray-500 text-sm">
+            <p className="flex items-center gap-2 text-gray-500 dark:text-gray-500 text-sm">
               Built with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by{' '}
               <a
                 href="https://github.com/Aniketkoppaka"

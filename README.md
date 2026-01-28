@@ -15,7 +15,7 @@ This system combines three powerful deep learning models into a unified pipeline
 | Model | Purpose | Accuracy |
 |-------|---------|----------|
 | **YOLOv8 Nano** | Object Detection | mAP50: 99.5% |
-| **MobileNetV2** | 4-Class Classification | 92.8% |
+| **EfficientNetB0** | 4-Class Classification | 94.02% |
 | **Autoencoder** | Anomaly Detection | Threshold-based |
 
 ### Waste Categories
@@ -85,11 +85,12 @@ WasteSegregation/
 │   ├── 01_environment_setup.ipynb    # Environment setup
 │   ├── 02_data_preparation.ipynb     # Data processing
 │   ├── 03_yolo_training.ipynb        # YOLO training
-│   ├── 04_mobilenet_classification.ipynb  # Classifier training
+│   ├── 04_mobilenet_classification.ipynb  # MobileNet training
 │   ├── 05_autoencoder_anomaly.ipynb  # Anomaly detector
 │   ├── 06_integration_pipeline.ipynb # Full pipeline
 │   ├── 07_taco_integration.ipynb     # TACO dataset
-│   └── 08_improve_dataset.ipynb      # Model improvement
+│   ├── 08_improve_dataset.ipynb      # Dataset balancing
+│   └── 09_efficientnet_training.ipynb # EfficientNetB0 (94.02%)
 ├── src/
 │   ├── __init__.py
 │   ├── detector.py              # YOLO detection module
@@ -162,15 +163,15 @@ print(f"Is Anomaly: {result['is_anomaly']}")
 
 ## 📊 Model Performance
 
-### Classification Results
+### Classification Results (EfficientNetB0)
 
 | Class | Precision | Recall | F1-Score |
 |-------|-----------|--------|----------|
-| Recyclable | 96% | 93% | 95% |
+| Recyclable | 98% | 93% | 95% |
 | Organic | 100% | 100% | 100% |
 | E-waste | 100% | 100% | 100% |
-| General | 68% | 79% | 73% |
-| **Overall** | **93%** | **93%** | **93%** |
+| General | 71% | 88% | 79% |
+| **Overall** | **94%** | **94%** | **94%** |
 
 ### Detection Results
 - **mAP50**: 99.5%
@@ -183,11 +184,12 @@ Run the notebooks in order to train the models:
 1. `01_environment_setup.ipynb` - Verify environment
 2. `02_data_preparation.ipynb` - Prepare datasets
 3. `03_yolo_training.ipynb` - Train YOLO detector
-4. `04_mobilenet_classification.ipynb` - Train classifier
+4. `04_mobilenet_classification.ipynb` - Train MobileNet classifier
 5. `05_autoencoder_anomaly.ipynb` - Train anomaly detector
 6. `06_integration_pipeline.ipynb` - Test full pipeline
 7. `07_taco_integration.ipynb` - Add TACO data
 8. `08_improve_dataset.ipynb` - Balance dataset
+9. `09_efficientnet_training.ipynb` - Train EfficientNetB0 (94.02%)
 
 ## 🛠️ Tech Stack
 

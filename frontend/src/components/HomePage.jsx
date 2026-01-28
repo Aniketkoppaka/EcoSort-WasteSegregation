@@ -145,7 +145,7 @@ export default function HomePage() {
           >
             <Sparkles className="w-4 h-4 text-primary-400" />
             <span className="text-sm font-medium text-primary-300">
-              Powered by YOLOv8 & MobileNetV2
+              Powered by YOLOv8 & EfficientNetB0
             </span>
           </motion.div>
 
@@ -154,7 +154,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="heading-1 text-white mb-6"
+            className="heading-1 text-gray-900 dark:text-white mb-6"
           >
             Intelligent{' '}
             <span className="text-gradient">Waste Segregation</span>
@@ -185,7 +185,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
-                className={`category-badge ${cat.bgColor} border border-white/10`}
+                className={`category-badge ${cat.bgColor} border border-gray-200 dark:border-white/10`}
               >
                 <cat.icon className={`w-4 h-4 ${cat.textColor}`} />
                 <span className={cat.textColor}>{cat.name}</span>
@@ -253,16 +253,16 @@ export default function HomePage() {
                   </div>
 
                   {/* File info */}
-                  <div className="flex items-center justify-between p-4 rounded-xl bg-white/5">
+                  <div className="flex items-center justify-between p-4 rounded-xl bg-gray-100 dark:bg-white/5">
                     <div className="flex items-center gap-3">
                       <div className="p-2 rounded-lg bg-primary-500/20">
                         <ImagePlus className="w-5 h-5 text-primary-400" />
                       </div>
                       <div>
-                        <p className="text-white font-medium truncate max-w-[200px] md:max-w-md">
+                        <p className="text-gray-900 dark:text-white font-medium truncate max-w-[200px] md:max-w-md">
                           {selectedFile.name}
                         </p>
-                        <p className="text-gray-400 text-sm">
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">
                           {(selectedFile.size / 1024 / 1024).toFixed(2)} MB
                         </p>
                       </div>
@@ -322,7 +322,7 @@ export default function HomePage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-2 text-white mb-4">
+          <h2 className="heading-2 text-gray-900 dark:text-white mb-4">
             How It Works
           </h2>
           <p className="body-large max-w-2xl mx-auto">
@@ -345,10 +345,10 @@ export default function HomePage() {
               <div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-primary-500/20 to-purple-500/20 mb-6">
                 <feature.icon className="w-6 h-6 text-primary-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                 {feature.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
@@ -365,7 +365,7 @@ export default function HomePage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-2 text-white mb-4">
+          <h2 className="heading-2 text-gray-900 dark:text-white mb-4">
             Waste Categories
           </h2>
           <p className="body-large max-w-2xl mx-auto">
@@ -390,7 +390,7 @@ export default function HomePage() {
               <h3 className={`text-lg font-semibold ${category.textColor} mb-2`}>
                 {category.name}
               </h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 {category.description}
               </p>
             </motion.div>
@@ -408,7 +408,7 @@ export default function HomePage() {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-purple-600/10" />
           <div className="relative z-10">
-            <h2 className="heading-2 text-white mb-4">
+            <h2 className="heading-2 text-gray-900 dark:text-white mb-4">
               Ready to Start?
             </h2>
             <p className="body-large max-w-xl mx-auto mb-8">

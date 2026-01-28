@@ -30,7 +30,7 @@ export default function UploadZone({ onFileSelect }) {
         transition-all duration-300 overflow-hidden
         ${isDragActive 
           ? 'border-primary-500 bg-primary-500/10' 
-          : 'border-white/20 hover:border-primary-500/50 hover:bg-white/5'
+          : 'border-gray-300 dark:border-white/20 hover:border-primary-500/50 hover:bg-gray-50 dark:hover:bg-white/5'
         }
         ${isDragAccept ? 'border-green-500 bg-green-500/10' : ''}
         ${isDragReject ? 'border-red-500 bg-red-500/10' : ''}
@@ -74,10 +74,10 @@ export default function UploadZone({ onFileSelect }) {
           animate={{ scale: isDragActive ? 1.02 : 1 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <h3 className="text-2xl font-semibold text-white mb-2">
+          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
             {isDragActive ? 'Drop your image here' : 'Drag & drop your image'}
           </h3>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             {isDragActive 
               ? 'Release to upload' 
               : 'or click to browse from your device'
@@ -101,10 +101,10 @@ export default function UploadZone({ onFileSelect }) {
         </p>
 
         {/* Decorative corners */}
-        <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-white/10 rounded-tl-lg" />
-        <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-white/10 rounded-tr-lg" />
-        <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-white/10 rounded-bl-lg" />
-        <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white/10 rounded-br-lg" />
+        <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-gray-200 dark:border-white/10 rounded-tl-lg" />
+        <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-gray-200 dark:border-white/10 rounded-tr-lg" />
+        <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-gray-200 dark:border-white/10 rounded-bl-lg" />
+        <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-gray-200 dark:border-white/10 rounded-br-lg" />
       </div>
     </motion.div>
   )

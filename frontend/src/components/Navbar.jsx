@@ -22,7 +22,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
       className="fixed top-0 left-0 right-0 z-50"
     >
       <div className="mx-4 mt-4">
-        <div className="glass-dark rounded-2xl max-w-7xl mx-auto">
+        <div className={`rounded-2xl max-w-7xl mx-auto transition-colors duration-300 ${darkMode ? 'glass-dark' : 'bg-white/80 backdrop-blur-xl border border-gray-200 shadow-lg'}`}>
           <div className="px-6 py-4">
             <div className="flex items-center justify-between">
               {/* Logo */}
@@ -38,10 +38,10 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   </div>
                 </motion.div>
                 <div className="flex flex-col">
-                  <span className="text-xl font-display font-bold text-white">
-                    Waste<span className="text-primary-400">AI</span>
+                  <span className={`text-xl font-display font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                    Eco<span className="text-primary-500">Sort</span>
                   </span>
-                  <span className="text-[10px] text-gray-400 -mt-1 tracking-wider uppercase">
+                  <span className={`text-[10px] -mt-1 tracking-wider uppercase ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     Intelligent Segregation
                   </span>
                 </div>
@@ -56,14 +56,16 @@ export default function Navbar({ darkMode, setDarkMode }) {
                     className="relative px-4 py-2 group"
                   >
                     <span className={`relative z-10 text-sm font-medium transition-colors duration-200 ${
-                      isActive(link.path) ? 'text-white' : 'text-gray-400 group-hover:text-white'
+                      isActive(link.path) 
+                        ? (darkMode ? 'text-white' : 'text-gray-900') 
+                        : (darkMode ? 'text-gray-400 group-hover:text-white' : 'text-gray-600 group-hover:text-gray-900')
                     }`}>
                       {link.name}
                     </span>
                     {isActive(link.path) && (
                       <motion.div
                         layoutId="navbar-active"
-                        className="absolute inset-0 bg-white/10 rounded-lg"
+                        className={`absolute inset-0 rounded-lg ${darkMode ? 'bg-white/10' : 'bg-primary-100'}`}
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -78,12 +80,12 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setDarkMode(!darkMode)}
-                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
+                  className={`p-2.5 rounded-xl transition-colors ${darkMode ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-100 hover:bg-gray-200'}`}
                 >
                   {darkMode ? (
                     <Sun className="w-5 h-5 text-yellow-400" />
                   ) : (
-                    <Moon className="w-5 h-5 text-gray-300" />
+                    <Moon className="w-5 h-5 text-gray-600" />
                   )}
                 </motion.button>
 
@@ -94,9 +96,9 @@ export default function Navbar({ darkMode, setDarkMode }) {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
+                  className={`p-2.5 rounded-xl transition-colors ${darkMode ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-100 hover:bg-gray-200'}`}
                 >
-                  <Github className="w-5 h-5 text-gray-300" />
+                  <Github className={`w-5 h-5 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`} />
                 </motion.a>
 
                 {/* CTA Button */}
@@ -115,12 +117,12 @@ export default function Navbar({ darkMode, setDarkMode }) {
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+                className={`md:hidden p-2 rounded-lg transition-colors ${darkMode ? 'hover:bg-white/10' : 'hover:bg-gray-100'}`}
               >
                 {isOpen ? (
-                  <X className="w-6 h-6 text-white" />
+                  <X className={`w-6 h-6 ${darkMode ? 'text-white' : 'text-gray-900'}`} />
                 ) : (
-                  <Menu className="w-6 h-6 text-white" />
+                  <Menu className={`w-6 h-6 ${darkMode ? 'text-white' : 'text-gray-900'}`} />
                 )}
               </motion.button>
             </div>
@@ -134,7 +136,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="md:hidden border-t border-white/10 overflow-hidden"
+                className={`md:hidden border-t overflow-hidden ${darkMode ? 'border-white/10' : 'border-gray-200'}`}
               >
                 <div className="px-6 py-4 space-y-2">
                   {navLinks.map((link) => (
@@ -144,17 +146,17 @@ export default function Navbar({ darkMode, setDarkMode }) {
                       onClick={() => setIsOpen(false)}
                       className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                         isActive(link.path)
-                          ? 'bg-white/10 text-white'
-                          : 'text-gray-400 hover:text-white hover:bg-white/5'
+                          ? (darkMode ? 'bg-white/10 text-white' : 'bg-primary-100 text-primary-700')
+                          : (darkMode ? 'text-gray-400 hover:text-white hover:bg-white/5' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100')
                       }`}
                     >
                       {link.name}
                     </Link>
                   ))}
-                  <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                  <div className={`flex items-center gap-3 pt-4 border-t ${darkMode ? 'border-white/10' : 'border-gray-200'}`}>
                     <button
                       onClick={() => setDarkMode(!darkMode)}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 text-gray-300"
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl ${darkMode ? 'bg-white/5 text-gray-300' : 'bg-gray-100 text-gray-600'}`}
                     >
                       {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                       <span>{darkMode ? 'Light' : 'Dark'}</span>
@@ -163,7 +165,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                       href="https://github.com/Aniketkoppaka/WasteSegregation"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 text-gray-300"
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl ${darkMode ? 'bg-white/5 text-gray-300' : 'bg-gray-100 text-gray-600'}`}
                     >
                       <Github className="w-5 h-5" />
                       <span>GitHub</span>

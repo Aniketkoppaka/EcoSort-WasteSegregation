@@ -81,9 +81,9 @@ export default function ResultsDisplay({ results }) {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-4">
             <Check className="w-4 h-4 text-green-400" />
-            <span className="text-sm font-medium text-green-300">Analysis Complete</span>
+            <span className="text-sm font-medium text-green-500 dark:text-green-300">Analysis Complete</span>
           </div>
-          <h2 className="heading-2 text-white">Classification Results</h2>
+          <h2 className="heading-2 text-gray-900 dark:text-white">Classification Results</h2>
         </motion.div>
 
         {/* Main result card */}
@@ -111,7 +111,7 @@ export default function ResultsDisplay({ results }) {
 
             {/* Classification info */}
             <div className="flex-1 text-center lg:text-left">
-              <p className="text-gray-400 text-sm uppercase tracking-wider mb-2">
+              <p className="text-gray-600 dark:text-gray-400 text-sm uppercase tracking-wider mb-2">
                 Classified as
               </p>
               <h3 className={`text-4xl md:text-5xl font-display font-bold ${config.textColor} mb-4`}>
@@ -121,10 +121,10 @@ export default function ResultsDisplay({ results }) {
               {/* Confidence bar */}
               <div className="max-w-md mx-auto lg:mx-0">
                 <div className="flex items-center justify-between text-sm mb-2">
-                  <span className="text-gray-400">Confidence</span>
+                  <span className="text-gray-600 dark:text-gray-400">Confidence</span>
                   <span className={`font-semibold ${config.textColor}`}>{confidence}%</span>
                 </div>
-                <div className="h-3 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-3 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${confidence}%` }}
@@ -141,16 +141,16 @@ export default function ResultsDisplay({ results }) {
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-4xl">{config.binIcon}</span>
                   <div>
-                    <p className="text-white font-semibold">{config.bin}</p>
-                    <p className="text-gray-400 text-sm">Recommended disposal</p>
+                    <p className="text-gray-900 dark:text-white font-semibold">{config.bin}</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Recommended disposal</p>
                   </div>
                 </div>
                 {disposal && (
                   <div className="space-y-2">
-                    <p className="text-gray-300 text-sm">{disposal.instructions}</p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">{disposal.instructions}</p>
                     <div className="flex items-start gap-2 pt-2">
-                      <Info className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" />
-                      <p className="text-gray-400 text-xs">{disposal.examples}</p>
+                      <Info className="w-4 h-4 text-gray-500 dark:text-gray-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-gray-500 dark:text-gray-400 text-xs">{disposal.examples}</p>
                     </div>
                   </div>
                 )}
@@ -172,7 +172,7 @@ export default function ResultsDisplay({ results }) {
               <div className="p-2 rounded-lg bg-purple-500/20">
                 <Target className="w-5 h-5 text-purple-400" />
               </div>
-              <h4 className="text-white font-semibold">Object Detection</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold">Object Detection</h4>
             </div>
             {detection ? (
               <div className="space-y-2">
@@ -182,18 +182,18 @@ export default function ResultsDisplay({ results }) {
                   ) : (
                     <AlertTriangle className="w-5 h-5 text-yellow-400" />
                   )}
-                  <span className={detection.detected ? 'text-green-400' : 'text-yellow-400'}>
+                  <span className={detection.detected ? 'text-green-500 dark:text-green-400' : 'text-yellow-500 dark:text-yellow-400'}>
                     {detection.detected ? 'Waste Detected' : 'No Waste Detected'}
                   </span>
                 </div>
                 {detection.detected && (
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
                     Confidence: {(detection.confidence * 100).toFixed(1)}%
                   </p>
                 )}
               </div>
             ) : (
-              <p className="text-gray-400 text-sm">Detection not available</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">Detection not available</p>
             )}
           </motion.div>
 
@@ -208,7 +208,7 @@ export default function ResultsDisplay({ results }) {
               <div className="p-2 rounded-lg bg-orange-500/20">
                 <Shield className="w-5 h-5 text-orange-400" />
               </div>
-              <h4 className="text-white font-semibold">Anomaly Check</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold">Anomaly Check</h4>
             </div>
             {anomaly ? (
               <div className="space-y-2">
@@ -218,16 +218,16 @@ export default function ResultsDisplay({ results }) {
                   ) : (
                     <Check className="w-5 h-5 text-green-400" />
                   )}
-                  <span className={anomaly.is_anomaly ? 'text-orange-400' : 'text-green-400'}>
+                  <span className={anomaly.is_anomaly ? 'text-orange-500 dark:text-orange-400' : 'text-green-500 dark:text-green-400'}>
                     {anomaly.is_anomaly ? 'Unusual Item Detected' : 'Normal Item'}
                   </span>
                 </div>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
                   Score: {anomaly.score.toFixed(2)} / 1.0
                 </p>
               </div>
             ) : (
-              <p className="text-gray-400 text-sm">Anomaly detection not available</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">Anomaly detection not available</p>
             )}
           </motion.div>
 
@@ -242,7 +242,7 @@ export default function ResultsDisplay({ results }) {
               <div className="p-2 rounded-lg bg-primary-500/20">
                 <Recycle className="w-5 h-5 text-primary-400" />
               </div>
-              <h4 className="text-white font-semibold">Take Action</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold">Take Action</h4>
             </div>
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -263,7 +263,7 @@ export default function ResultsDisplay({ results }) {
           transition={{ delay: 0.6 }}
           className="card-glass p-8"
         >
-          <h4 className="text-xl font-semibold text-white mb-6">Probability Distribution</h4>
+          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Probability Distribution</h4>
           <div className="space-y-4">
             {probabilities.map(([category, probability], index) => {
               const catConfig = categoryConfig[category] || categoryConfig.general
@@ -280,11 +280,11 @@ export default function ResultsDisplay({ results }) {
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-3">
                       <catConfig.icon className={`w-5 h-5 ${catConfig.textColor}`} />
-                      <span className="text-white font-medium capitalize">{category}</span>
+                      <span className="text-gray-900 dark:text-white font-medium capitalize">{category}</span>
                     </div>
                     <span className={`font-semibold ${catConfig.textColor}`}>{percent}%</span>
                   </div>
-                  <div className="h-2.5 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-2.5 bg-gray-200 dark:bg-white/5 rounded-full overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${percent}%` }}
